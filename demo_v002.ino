@@ -168,8 +168,8 @@ void loop() {
 
     // water(n_day);
     if (n_day <= 14) {
-      if (p_tm->tm_hour == 8 || p_tm->tm_hour == 15) {
-        if (p_tm->tm_min == 0 && p_tm->tm_sec <= 25) {
+      if (p_tm->tm_hour == 8 || p_tm->tm_hour == 15 || soil < 50) {
+        if (p_tm->tm_min == 0 && p_tm->tm_sec <= 25 || soil < 50) {
           digitalWrite(relay_pump, 1);
           
           if (state_water == 0) {
@@ -189,8 +189,8 @@ void loop() {
       }
     }
     else if (n_day > 14) {
-      if (p_tm->tm_hour == 8 || p_tm->tm_hour == 12 || p_tm->tm_hour == 13 || p_tm->tm_hour == 15) {
-        if (p_tm->tm_min == 0 && p_tm->tm_sec <= 25) {
+      if (p_tm->tm_hour == 8 || p_tm->tm_hour == 12 || p_tm->tm_hour == 15 || soil < 50) {
+        if (p_tm->tm_min == 0 && p_tm->tm_sec <= 25 || soil < 50) {
           digitalWrite(relay_pump, 1);
           
           if (state_water == 0) {
